@@ -2,6 +2,8 @@ package me.hao0.wechat.model.data.user;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import lombok.Builder;
+import lombok.Data;
 import me.hao0.wechat.serializer.UserSourceDeserializer;
 import java.io.Serializable;
 
@@ -11,6 +13,8 @@ import java.io.Serializable;
  * Email: haolin.h0@gmail.com
  * Date: 20/11/15
  */
+@Data
+@Builder
 public class UserSummary implements Serializable {
 
     private static final long serialVersionUID = -6612438038581745613L;

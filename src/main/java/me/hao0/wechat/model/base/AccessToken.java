@@ -1,5 +1,8 @@
 package me.hao0.wechat.model.base;
 
+import lombok.Builder;
+import lombok.Data;
+
 import java.io.Serializable;
 
 /**
@@ -9,6 +12,8 @@ import java.io.Serializable;
  * Date: 10/11/15
  * @since 1.0.0
  */
+@Data
+@Builder
 public class AccessToken implements Serializable {
 
     private static final long serialVersionUID = 6038499458891708844L;

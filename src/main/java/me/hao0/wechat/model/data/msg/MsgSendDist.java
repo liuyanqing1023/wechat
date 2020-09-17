@@ -1,6 +1,9 @@
 package me.hao0.wechat.model.data.msg;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Builder;
+import lombok.Data;
+
 import java.io.Serializable;
 
 /**
@@ -9,6 +12,8 @@ import java.io.Serializable;
  * Email: haolin.h0@gmail.com
  * Date: 20/11/15
  */
+@Data
+@Builder
 public class MsgSendDist implements Serializable {
 
     private static final long serialVersionUID = -2677208070764939927L;

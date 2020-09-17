@@ -1,5 +1,8 @@
 package me.hao0.wechat.model.customer;
 
+import lombok.Builder;
+import lombok.Data;
+
 import java.io.Serializable;
 import java.util.Date;
 
@@ -9,6 +12,8 @@ import java.util.Date;
  * Email: haolin.h0@gmail.com
  * Date: 7/11/15
  */
+@Data
+@Builder
 public class CsSession implements Serializable {
 
     private static final long serialVersionUID = -8380650779042961587L;

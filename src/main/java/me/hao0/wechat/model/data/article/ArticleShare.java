@@ -2,6 +2,8 @@ package me.hao0.wechat.model.data.article;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import lombok.Builder;
+import lombok.Data;
 import me.hao0.wechat.serializer.ArticleShareSceneDeserializer;
 import java.io.Serializable;
 

@@ -1,6 +1,8 @@
 package me.hao0.wechat.model.data.article;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Builder;
+import lombok.Data;
 
 /**
  * 图文群发每日数据
@@ -8,6 +10,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * Email: haolin.h0@gmail.com
  * Date: 20/11/15
  */
+@Data
+@Builder
 public class ArticleDailySummary extends CommonSummary {
 
     private static final long serialVersionUID = -7195185645683267419L;

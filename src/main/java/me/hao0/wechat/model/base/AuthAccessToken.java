@@ -1,6 +1,8 @@
 package me.hao0.wechat.model.base;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Builder;
+import lombok.Data;
 
 import java.io.Serializable;
 
@@ -13,6 +15,8 @@ import java.io.Serializable;
  *     <a href="http://mp.weixin.qq.com/wiki/17/c0f37d5704f0b64713d5d2c37b468d75.html" target="_blank">参考链接</a>
  * </p>
  */
+@Data
+@Builder
 public class AuthAccessToken implements Serializable {
 
     private static final long serialVersionUID = 7082882275191271333L;
