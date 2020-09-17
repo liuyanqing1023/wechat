@@ -1,5 +1,7 @@
 package me.hao0.wechat.core;
 
+import com.alibaba.fastjson.JSONObject;
+
 import java.io.InputStream;
 import java.util.Collections;
 import java.util.Map;
@@ -32,7 +34,15 @@ public abstract class Component {
     protected Map<String, Object> doPost(String url, Map<String, Object> params){
         return wechat.doPost(url, params);
     }
-
+    /**
+     * POST请求
+     * @param url URL
+     * @param params 请求参数
+     * @return Map结果集
+     */
+    protected Map<String, Object> doPost(String url, Object params) {
+        return this.wechat.doPost(url, JSONObject.toJSONString(params));
+    }
     /**
      * POST请求
      * @param url URL

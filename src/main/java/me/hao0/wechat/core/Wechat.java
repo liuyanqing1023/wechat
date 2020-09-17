@@ -242,6 +242,8 @@ public final class Wechat {
         return resp;
     }
 
+
+
     Map<String, Object> doGet(String url) {
         return doGet(url, null);
     }

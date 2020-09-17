@@ -2,7 +2,9 @@ package me.hao0.wechat.core;
 
 import com.google.common.base.Strings;
 import com.google.common.collect.Maps;
+import me.hao0.common.util.Preconditions;
 import me.hao0.common.xml.XmlReaders;
+import me.hao0.wechat.model.data.msg.MiniprogramTemplateSend;
 import me.hao0.wechat.model.message.receive.RecvMessage;
 import me.hao0.wechat.model.message.receive.RecvMessageType;
 import me.hao0.wechat.model.message.receive.event.RecvEvent;
@@ -49,6 +51,10 @@ public final class Messages extends Component {
      * 发送模板消息
      */
     private static final String TEMPLATE_SEND = "http://api.weixin.qq.com/cgi-bin/message/template/send?access_token=";
+    /**
+     * 发送消息模板(小程序)
+     */
+    private static final String WXOPEN_TEMPLATE_SEND = "https://api.weixin.qq.com/cgi-bin/message/wxopen/template/send?access_token=";
 
     /**
      * 分组群发消息
@@ -478,6 +484,17 @@ public final class Messages extends Component {
         Map<String, Object> resp = doPost(url, params);
         Object msgId = resp.get("msgid");
         return msgId instanceof Long ? (Long)msgId : ((Integer)msgId).longValue();
+    }
+    public void sendTemplate(MiniprogramTemplateSend miniprogramTemplateSend) {
+        this.sendTemplate(this.loadAccessToken(), miniprogramTemplateSend);
+    }
+
+    public void sendTemplate(String accessToken, MiniprogramTemplateSend send) {
+        Preconditions.checkNotNullAndEmpty(accessToken, "accessToken");
+        Preconditions.checkNotNullAndEmpty(send.getTouser(), "openId");
+        Preconditions.checkNotNullAndEmpty(send.getTemplateId(), "templateId");
+        Preconditions.checkNotNullAndEmpty(send.getFormId(), "formId");
+        this.doPost(WXOPEN_TEMPLATE_SEND + accessToken, send);
     }
 
     private Map<String, Object> buildTemplateParams(String openId, String templateId, String link, List<TemplateField> fields) {
