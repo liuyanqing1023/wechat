@@ -4,7 +4,7 @@ import com.google.common.base.Strings;
 import com.google.common.collect.Maps;
 import me.hao0.common.util.Preconditions;
 import me.hao0.common.xml.XmlReaders;
-import me.hao0.wechat.model.data.msg.MiniprogramTemplateSend;
+import me.hao0.wechat.model.message.send.MiniprogramTemplateSend;
 import me.hao0.wechat.model.message.receive.RecvMessage;
 import me.hao0.wechat.model.message.receive.RecvMessageType;
 import me.hao0.wechat.model.message.receive.event.RecvEvent;
@@ -495,6 +495,12 @@ public final class Messages extends Component {
         Preconditions.checkNotNullAndEmpty(send.getTemplateId(), "templateId");
         Preconditions.checkNotNullAndEmpty(send.getFormId(), "formId");
         this.doPost(WXOPEN_TEMPLATE_SEND + accessToken, send);
+    }
+    public void sendTemplate(String otherSend,String otherUrl) {
+        this.sendTemplate(this.loadAccessToken(), otherSend);
+    }
+    public void sendTemplate(String accessToken, String otherSend,String otherUrl) {
+        this.doPost(otherUrl + accessToken, otherSend);
     }
 
     private Map<String, Object> buildTemplateParams(String openId, String templateId, String link, List<TemplateField> fields) {

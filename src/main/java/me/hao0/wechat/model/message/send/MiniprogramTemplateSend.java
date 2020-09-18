@@ -1,4 +1,4 @@
-package me.hao0.wechat.model.data.msg;
+package me.hao0.wechat.model.message.send;
 
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.annotation.JSONField;
