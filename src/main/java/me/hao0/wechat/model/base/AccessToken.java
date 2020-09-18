@@ -32,37 +32,4 @@ public class AccessToken implements Serializable {
      * 过期时刻(ms)
      */
     private Long expiredAt;
-
-    public String getAccessToken() {
-        return accessToken;
-    }
-
-    public void setAccessToken(String accessToken) {
-        this.accessToken = accessToken;
-    }
-
-    public Integer getExpire() {
-        return expire;
-    }
-
-    public void setExpire(Integer expire) {
-        this.expire = expire;
-    }
-
-    public Long getExpiredAt() {
-        return expiredAt;
-    }
-
-    public void setExpiredAt(Long expiredAt) {
-        this.expiredAt = expiredAt;
-    }
-
-    @Override
-    public String toString() {
-        return "AccessToken{" +
-                "accessToken='" + accessToken + '\'' +
-                ", expire=" + expire +
-                ", expiredAt=" + expiredAt +
-                '}';
-    }
 }

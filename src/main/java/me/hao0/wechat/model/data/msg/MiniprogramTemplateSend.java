@@ -2,6 +2,7 @@ package me.hao0.wechat.model.data.msg;
 
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.annotation.JSONField;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.oracle.webservices.internal.api.databinding.DatabindingMode;
 import lombok.Builder;
 import lombok.Data;
@@ -17,18 +18,12 @@ import lombok.Data;
 @Builder
 public class MiniprogramTemplateSend {
     private String touser;
-    @JSONField(
-            name = "template_id"
-    )
+    @JsonProperty("template_id")
     private String templateId;
     private String page;
-    @JSONField(
-            name = "form_id"
-    )
+    @JsonProperty("form_id")
     private String formId;
     private JSONObject data;
-    @JSONField(
-            name = "emphasis_keyword"
-    )
+    @JsonProperty("emphasis_keyword")
     private String emphasisKeyword;
 }

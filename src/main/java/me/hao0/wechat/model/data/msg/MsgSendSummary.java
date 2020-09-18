@@ -43,46 +43,4 @@ public class MsgSendSummary implements Serializable {
      */
     @JsonProperty("msg_count")
     private Integer msgCount;
-
-    public String getDate() {
-        return date;
-    }
-
-    public void setDate(String date) {
-        this.date = date;
-    }
-
-    public MsgType getMsgType() {
-        return msgType;
-    }
-
-    public void setMsgType(MsgType msgType) {
-        this.msgType = msgType;
-    }
-
-    public Integer getMsgUser() {
-        return msgUser;
-    }
-
-    public void setMsgUser(Integer msgUser) {
-        this.msgUser = msgUser;
-    }
-
-    public Integer getMsgCount() {
-        return msgCount;
-    }
-
-    public void setMsgCount(Integer msgCount) {
-        this.msgCount = msgCount;
-    }
-
-    @Override
-    public String toString() {
-        return "MsgSendSummary{" +
-                "date='" + date + '\'' +
-                ", msgType=" + msgType +
-                ", msgUser=" + msgUser +
-                ", msgCount=" + msgCount +
-                '}';
-    }
 }

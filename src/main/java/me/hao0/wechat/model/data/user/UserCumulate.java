@@ -29,28 +29,4 @@ public class UserCumulate implements Serializable {
      */
     @JsonProperty("cumulate_user")
     private Integer cumulateCount;
-
-    public String getDate() {
-        return date;
-    }
-
-    public void setDate(String date) {
-        this.date = date;
-    }
-
-    public Integer getCumulateCount() {
-        return cumulateCount;
-    }
-
-    public void setCumulateCount(Integer cumulateCount) {
-        this.cumulateCount = cumulateCount;
-    }
-
-    @Override
-    public String toString() {
-        return "UserCumulate{" +
-                "date='" + date + '\'' +
-                ", cumulateCount=" + cumulateCount +
-                '}';
-    }
 }

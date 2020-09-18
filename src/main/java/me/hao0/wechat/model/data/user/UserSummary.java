@@ -45,38 +45,6 @@ public class UserSummary implements Serializable {
     @JsonProperty("cancel_user")
     private Integer cancelCount;
 
-    public String getDate() {
-        return date;
-    }
-
-    public void setDate(String date) {
-        this.date = date;
-    }
-
-    public UserSource getSource() {
-        return source;
-    }
-
-    public void setSource(UserSource source) {
-        this.source = source;
-    }
-
-    public Integer getNewCount() {
-        return newCount;
-    }
-
-    public void setNewCount(Integer newCount) {
-        this.newCount = newCount;
-    }
-
-    public Integer getCancelCount() {
-        return cancelCount;
-    }
-
-    public void setCancelCount(Integer cancelCount) {
-        this.cancelCount = cancelCount;
-    }
-
     /**
      * 获取用户增量(负数表示取消关注的人多于新增的人)
      *  newUser - cancelUser
@@ -84,15 +52,5 @@ public class UserSummary implements Serializable {
      */
     public Integer getIncrement(){
         return newCount - cancelCount;
-    }
-
-    @Override
-    public String toString() {
-        return "UserSummary{" +
-                "date='" + date + '\'' +
-                ", source=" + source +
-                ", newCount=" + newCount +
-                ", cancelCount=" + cancelCount +
-                '}';
     }
 }
