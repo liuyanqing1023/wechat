@@ -453,13 +453,14 @@ public final class CustomerServices extends Component {
     }
 
     private MsgRecord renderMsgRecord(Map<String, Object> record) {
-        MsgRecord msg = new MsgRecord();
-        msg.setOpenid((String)record.get("openid"));
-        msg.setOpercode((String)record.get("opercode"));
-        msg.setText((String)record.get("text"));
-        msg.setTime(new Date((Integer)record.get("time") * 1000L));
-        msg.setWorker((String)record.get("worker"));
-        return msg;
+
+        return MsgRecord.builder()
+                .openid((String)record.get("openid"))
+                .opercode((String)record.get("openid"))
+                .text((String)record.get("text"))
+                .time(new Date((Integer)record.get("time") * 1000L))
+                .worker((String)record.get("worker"))
+                .build();
     }
 
     /**
@@ -621,11 +622,11 @@ public final class CustomerServices extends Component {
 
         String url = USER_SESSION_STATUS + accessToken + "&openid=" + openId;
         Map<String, Object> resp = doGet(url);
-        UserSession status = new UserSession();
-        status.setKfAccount(String.valueOf(resp.get("kf_account")));
-        status.setCreateTime(new Date((Integer)resp.get("createtime") * 1000L));
 
-        return status;
+        return UserSession.builder()
+                .kfAccount(String.valueOf(resp.get("kf_account")))
+                .createTime(new Date((Integer)resp.get("createtime") * 1000L))
+                .build();
     }
 
     /**
@@ -688,10 +689,10 @@ public final class CustomerServices extends Component {
     }
 
     private CsSession renderCsSession(Map<String, Object> session) {
-        CsSession s = new CsSession();
-        s.setOpenId((String)session.get("openid"));
-        s.setCreateTime(new Date((Integer)session.get("createtime") * 1000L));
-        return s;
+        return CsSession.builder()
+                .openId((String)session.get("openid"))
+                .createTime(new Date((Integer)session.get("createtime") * 1000L))
+                .build();
     }
 
     /**
@@ -748,10 +749,10 @@ public final class CustomerServices extends Component {
     }
 
     private WaitingSession renderWaitingSession(Map<String, Object> session) {
-        WaitingSession s = new WaitingSession();
-        s.setOpenId((String)session.get("openid"));
-        s.setKfAccount((String)session.get("kf_account"));
-        s.setCreateTime(new Date((Integer)session.get("createtime") * 1000L));
-        return s;
+        return WaitingSession.builder()
+                .openId((String)session.get("openid"))
+                .kfAccount((String)session.get("kf_account"))
+                .createTime(new Date((Integer)session.get("createtime") * 1000L))
+                .build();
     }
 }

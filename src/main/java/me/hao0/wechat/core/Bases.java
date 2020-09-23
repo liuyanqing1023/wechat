@@ -127,15 +127,13 @@ public final class Bases extends Component {
      */
     public AccessToken accessToken(){
         String url = ACCESS_TOKEN_URL + "&appid=" + wechat.getAppId() + "&secret=" + wechat.getAppSecret();
-
         Map<String, Object> resp = doGet(url);
-        AccessToken token = new AccessToken();
-        token.setAccessToken((String)resp.get("access_token"));
         Integer expire = (Integer)resp.get("expires_in");
-        token.setExpire(expire);
-        token.setExpiredAt(System.currentTimeMillis() + expire * 1000);
-
-        return token;
+        return AccessToken.builder()
+                .accessToken((String)resp.get("access_token"))
+                .expire(expire)
+                .expiredAt(System.currentTimeMillis() + expire * 1000)
+                .build();
     }
 
     /**
