@@ -1,5 +1,10 @@
 package me.hao0.wechat.model.js;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.io.Serializable;
 
 /**
@@ -8,6 +13,10 @@ import java.io.Serializable;
  * Email: haolin.h0@gmail.com
  * Date: 15/11/15
  */
+@Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class Config implements Serializable {
 
     private static final long serialVersionUID = -8263857663686622616L;
@@ -31,56 +40,4 @@ public class Config implements Serializable {
      * 签名
      */
     private String signature;
-
-    public Config(String appId, Long timestamp, String nonStr, String signature) {
-        this.appId = appId;
-        this.timestamp = timestamp;
-        this.nonStr = nonStr;
-        this.signature = signature;
-    }
-
-    public Config() {
-    }
-
-    public String getAppId() {
-        return appId;
-    }
-
-    public void setAppId(String appId) {
-        this.appId = appId;
-    }
-
-    public Long getTimestamp() {
-        return timestamp;
-    }
-
-    public void setTimestamp(Long timestamp) {
-        this.timestamp = timestamp;
-    }
-
-    public String getNonStr() {
-        return nonStr;
-    }
-
-    public void setNonStr(String nonStr) {
-        this.nonStr = nonStr;
-    }
-
-    public String getSignature() {
-        return signature;
-    }
-
-    public void setSignature(String signature) {
-        this.signature = signature;
-    }
-
-    @Override
-    public String toString() {
-        return "Config{" +
-                "appId='" + appId + '\'' +
-                ", timestamp=" + timestamp +
-                ", nonStr='" + nonStr + '\'' +
-                ", signature='" + signature + '\'' +
-                '}';
-    }
 }

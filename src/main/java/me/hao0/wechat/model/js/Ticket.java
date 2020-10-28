@@ -1,5 +1,8 @@
 package me.hao0.wechat.model.js;
 
+import lombok.Builder;
+import lombok.Data;
+
 import java.io.Serializable;
 
 /**
@@ -9,6 +12,8 @@ import java.io.Serializable;
  * Date: 14/11/15
  * @see TicketType
  */
+@Data
+@Builder
 public class Ticket implements Serializable {
 
     private static final long serialVersionUID = 978451551258121101L;
@@ -32,46 +37,4 @@ public class Ticket implements Serializable {
      * 过期时刻(ms)
      */
     private Long expireAt;
-
-    public String getTicket() {
-        return ticket;
-    }
-
-    public void setTicket(String ticket) {
-        this.ticket = ticket;
-    }
-
-    public TicketType getType() {
-        return type;
-    }
-
-    public void setType(TicketType type) {
-        this.type = type;
-    }
-
-    public Integer getExpire() {
-        return expire;
-    }
-
-    public void setExpire(Integer expire) {
-        this.expire = expire;
-    }
-
-    public Long getExpireAt() {
-        return expireAt;
-    }
-
-    public void setExpireAt(Long expireAt) {
-        this.expireAt = expireAt;
-    }
-
-    @Override
-    public String toString() {
-        return "Ticket{" +
-                "ticket='" + ticket + '\'' +
-                ", type=" + type +
-                ", expire=" + expire +
-                ", expireAt=" + expireAt +
-                '}';
-    }
 }
