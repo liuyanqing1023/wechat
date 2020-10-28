@@ -55,6 +55,10 @@ public final class Messages extends Component {
      * 发送消息模板(小程序)
      */
     private static final String WXOPEN_TEMPLATE_SEND = "https://api.weixin.qq.com/cgi-bin/message/wxopen/template/send?access_token=";
+    /**
+     * 发送订阅消息(小程序)
+     */
+    private static final String MINI_SUBSCRIBE_SEND = "https://api.weixin.qq.com/cgi-bin/message/subscribe/send?access_token=";
 
     /**
      * 分组群发消息
@@ -496,6 +500,30 @@ public final class Messages extends Component {
         Preconditions.checkNotNullAndEmpty(send.getFormId(), "formId");
         this.doPost(WXOPEN_TEMPLATE_SEND + accessToken, send);
     }
+
+
+    /**
+     * 发送小程序订阅消息
+     * @param miniprogramTemplateSend
+     */
+    public void sendSubscribe(MiniprogramTemplateSend miniprogramTemplateSend) {
+        this.sendSubscribe(this.loadAccessToken(), miniprogramTemplateSend);
+    }
+    public void sendSubscribe(String accessToken, MiniprogramTemplateSend send) {
+        this.sendSubscribe(this.loadAccessToken(), send,MINI_SUBSCRIBE_SEND);
+    }
+    public void sendSubscribe(String accessToken, MiniprogramTemplateSend send,String url) {
+        Preconditions.checkNotNullAndEmpty(accessToken, "accessToken");
+        Preconditions.checkNotNullAndEmpty(send.getTouser(), "openId");
+        Preconditions.checkNotNullAndEmpty(send.getTemplateId(), "templateId");
+        this.doPost(url + accessToken, send);
+    }
+
+    /**
+     *
+     * @param otherSend  其他消息
+     * @param otherUrl 其他URL
+     */
     public void sendTemplate(String otherSend,String otherUrl) {
         this.sendTemplate(this.loadAccessToken(), otherSend);
     }
