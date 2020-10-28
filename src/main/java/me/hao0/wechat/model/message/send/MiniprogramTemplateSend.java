@@ -1,9 +1,7 @@
 package me.hao0.wechat.model.message.send;
 
 import com.alibaba.fastjson.JSONObject;
-import com.alibaba.fastjson.annotation.JSONField;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.oracle.webservices.internal.api.databinding.DatabindingMode;
 import lombok.Builder;
 import lombok.Data;
 
